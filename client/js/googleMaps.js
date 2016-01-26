@@ -1,6 +1,9 @@
 googleMaps = {
   map: null,
   youAreHere: null,
+  markers: [],
+  latLngs: [],
+  markerData: [],
   initialize: function() {
     // My Favorite Coffee Shop In New Haven
     var currentLocation = new google.maps.LatLng(41.3047960, -72.9234220);
@@ -30,5 +33,25 @@ googleMaps = {
       icon: "/bluedot.png"
     });
     youAreHere.setMap(this.map);
-  }
+  },
+  addMarker: function(marker) {
+    var gLatLng = new google.maps.LatLng(marker.lat, marker.lng);
+    var gMarker = new google.maps.Marker({
+      position: gLatLng,
+      map: this.map,
+      title: marker.title,
+      infoWindow: marker.infoWindow
+    });
+    this.latLngs.push(gLatLng);
+    this.markers.push(gMarker);
+    this.markerData.push(marker);
+    return gMarker;
+  },
+  markerExists: function(key, val) {
+    _.each(this.markers, function(storedMarker) {
+      if (storedMarker[key] == val)
+      return true;
+    });
+    return false;
+  },
 }

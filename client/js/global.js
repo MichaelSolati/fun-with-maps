@@ -10,3 +10,5 @@ if (navigator.geolocation) {
     enableHighAccuracy: true
   });
 }
+
+Meteor.subscribe("restaurants");
