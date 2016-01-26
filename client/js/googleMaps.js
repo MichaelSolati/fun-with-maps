@@ -18,5 +18,17 @@ googleMaps = {
       icon: "/bluedot.png"
     });
     youAreHere.setMap(this.map);
+  },
+  findMe: function() {
+    youAreHere.setMap(null);
+    var currentLocation = new google.maps.LatLng(Session.get("lat"), Session.get("lng"));
+    this.map.panTo(currentLocation);
+    this.map.setZoom(18);
+    youAreHere = new google.maps.Marker({
+      position: currentLocation,
+      title:"You Are Here!",
+      icon: "/bluedot.png"
+    });
+    youAreHere.setMap(this.map);
   }
 }
