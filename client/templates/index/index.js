@@ -26,6 +26,7 @@ Template.index.onRendered(function() {
             '<h1>'+restaurant.name+'</h1>'+
             '<h3>'+restaurant.cuisine+'</h3>'+
             '<p>'+restaurant.address.building+' '+restaurant.address.street+', '+restaurant.borough+'</p>'+
+            '<p>'+restaurant.distance+' - '+restaurant.duration+'</p>'+
             '</div>';
             var infoWindow = new google.maps.InfoWindow({
               content: contentString,
