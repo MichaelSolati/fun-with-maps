@@ -54,4 +54,12 @@ googleMaps = {
     });
     return false;
   },
+  clearMarkers: function() {
+    for (var i = 0; i <   this.markers.length; i++ ) {
+      this.markers[i].setMap(null);
+    }
+    this.markers = [];
+    this.latLngs = [];
+    this.markerData = [];
+  }
 }
